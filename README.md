@@ -33,10 +33,10 @@
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Best-README-Template</h3>
+  <h3 align="center">Vale Incid</h3>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
+    App para controle de incidentes de segurança do trabalho da Vale. O objetivo é registrar, acompanhar e plotar resultados utilizando de um workflow definido.
     <br />
     <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
     <br />
@@ -71,24 +71,23 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+O porque:
+Hoje na Vale o registro e controle dos incidentes é complexo e cheio de ruídos. Para que um registro seja feito, o mesmo passa por pelo
+menos 3 personagens diferentes, em momentos diferentes. Por isso, um número excessivo de informação é gerada de forma repetida, é
+dificil acompanhar os gargalos de atraso e a quantidade de erros é de registro é consideravel. 
 
-There are many great README templates available on GitHub, however, I didn't find one that really suit my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need.
+Por isso, resumidamente nosso app promete:
+* Definir perfis de usuários, alocando as responsabilidades de cada para que possam ser cobrados e também guiar as telas especificas para cada especialidade de perfil.
+* Criar um workflow de farois, onde emails seriam disparados a medida que incidentes mais graves fossem registrados, ou quando prazos de registros estivessem em atraso.
+* Levar informação a mão dos gestores, sobre as taxas e incidentes que ocorreram de forma imediata.
 
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should element DRY principles to the rest of your life :smile:
 
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue.
+### Built With]
 
-A list of commonly used resources that I find helpful are listed in the acknowledgements.
-
-### Built With
-This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
-* [Laravel](https://laravel.com)
+* [Javascript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
+* [React-Redux](https://react-redux.js.org/)
+* [Typescript](https://www.typescriptlang.org/)
+* [AWS](https://aws.amazon.com/pt/)
 
 
 
@@ -127,11 +126,60 @@ const API_KEY = 'ENTER YOUR API';
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+Registro:
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+  Será feito por 3 tipos de usuários diferentes:
+  
+  1) Registrante inicial
+  2) Resgrito de responsabilidade da Segurança do Trabalho
+  3) Registro da Saúde
 
+#User-1 Nosso User-1 é o homem de segurança de ponta, que irá descrever com fotos e palavras o incidente. A interface deste com o app 
+acontece um única vez por incidente (a não ser que ele tenha de editar o mesmo por erro, caso User-2 ou User-3 verifique alguma
+incongruência)
 
+#User-2 Este é o analista de seg., responsável por avaliar o incidente, cobrar a responsabilidade dos outros Users e concluir o
+registro.
+
+#User-3 Este é o funcionário da saúde. Tem como objetivo identificar o tipo de lesão que gerou o incidente, Este entra em momento
+intermediário e sem ele o incidente não pode ser concluído pelo User-2.
+
+Objetivamente o app consistirá quanto a etapa de registro nas seguintes Telas:
+
+  *Login
+  *Tela de incidentes:
+      Terá todos os incidentes com os seguintes status por User:
+        
+        #User-2: 
+          Mostrará todos os incidentes, independente de quem seja. Será possível identificar: 
+            - com quem está o registro
+            - quais já foram inseridos no SAP e quais não
+            - Alocar responsabilidade de incidentes a determinados Users.
+          Também será capaz de tirar um relatório do incidente em PDF padrão Vale, com foto e informações.
+        
+        #User-1:
+            Terá apenas a opção de registrar um novo incidente através de um botão + e editar os incidentes que estiverem
+          alocados em sua chave de usuário.
+         
+        #User-3:
+            Irá encontrar apenas incidentes em seu nome e incidentens aguardando resposta da saúde sem responsável.
+            
+    *Tela de registro:
+        É o form de registro dos dados. Teremos telas diferentes para cada usuário. Esta tela é aberta ao clicar em um incidente
+      ou ao criar um novo.
+      
+ Outras funcionalidades:
+    *Workflow de registros:
+        Emails devem ser disparados para diferentes pessoas por diferentes motivos.
+            - Ao ser lançado um incidente de alto risco
+            - quando incidentes estiverem demorando para serem finalizados seu registro.
+     
+     *Gerar PDF Padrão Vale do incidente selecionado.
+     
+     *Plotar gráficos para gestores:
+          Outro perfil de usuário é o do Gestor. Este tem interesse em apenas conferir dados e gráficos a mão e on time.
+          Uma nova tela seria criada apenas para apresentarmos gráficos e dados do banco de dados que criamos.
+       
 
 <!-- ROADMAP -->
 ## Roadmap
